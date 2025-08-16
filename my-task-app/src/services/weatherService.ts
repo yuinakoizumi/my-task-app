@@ -11,7 +11,6 @@ export interface WeatherData {
 }
 
 const API_KEY = import.meta.env.VITE_OPENWEATHER_KEY;
-console.log("VITE API_KEY:", API_KEY); // 正しいキーが出るはず
 export const fetchWeather = async (city: string): Promise<WeatherData> => {
   const response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
@@ -24,5 +23,3 @@ export const fetchWeather = async (city: string): Promise<WeatherData> => {
   const data: WeatherData = await response.json(); // 型を明示
   return data;
 };
-
-
